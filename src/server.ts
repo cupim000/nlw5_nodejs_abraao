@@ -1,5 +1,7 @@
 import express, { response } from "express";
 
+import "./database";
+import {routes} from "./routes";
 const app = express();
 
 /**
@@ -9,17 +11,7 @@ const app = express();
  * DELETE = Deletar 
  * PATCH = Alterar só um dado especifico
  */
-
-app.get("/",(request,response) =>{
-  return response.json({
-    message: "Braozinho tá ON!"
-  })
-})
-
-app.post("/users", (request, response) =>{
-  return response.json({
-    message: "User saved successfuly!"
-  })
-})
+app.use(express.json());
+app.use(routes); 
 
 app.listen(3333, ()=> console.log("Server is runnig on port 3333"))
