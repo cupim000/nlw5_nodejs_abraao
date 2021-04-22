@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryColumn, CreateDateColumn, ManyToOne, JoinColumn } from "typeorm";
 import {v4 as uuid} from "uuid";
-import {User} from "./Users"
+import {User} from "./Users";
 
 @Entity("messages")
 class Message{
