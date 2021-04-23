@@ -1,20 +1,20 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm"
-import{v4 as uuid} from "uuid";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import { v4 as uuidV4 } from 'uuid';
 
-@Entity("users")
-class User{
-      @PrimaryColumn()
-      id: string;
-      @Column()
-      email: string;
-      @CreateDateColumn()
-      created_at: Date;
+@Entity('users')
+class User {
+  @PrimaryColumn()
+  id: string;
 
-      constructor(){
-          if(!this.id){
-            this.id = uuid();
-          }
-      }
+  @Column()
+  email: string;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  constructor() {
+    if (!this.id) this.id = uuidV4();
+  }
 }
 
-export{User}
+export { User };

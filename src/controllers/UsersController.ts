@@ -1,18 +1,17 @@
-import {Request, Response} from "express"
-import { UsersService } from "../services/UsersServices"
+import { Request, Response } from 'express';
 
+import { UsersService } from '../services/UsersServices';
 
-class UsersController{
-  async create(request: Request, response: Response): Promise<Response>{
-    const {email} = request.body;
+class UsersController {
+  async create(req: Request, res: Response): Promise<Response> {
+    const { email } = req.body;
 
-    const userService = new UsersService();
+    const usersService = new UsersService();
 
-    const user = await userService.create(email);
+    const user = await usersService.create(email);
 
-    return response.json(user);
+    return res.json(user);
   }
-
 }
 
-export{UsersController}
+export { UsersController };
